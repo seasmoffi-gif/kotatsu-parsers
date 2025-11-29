@@ -228,7 +228,7 @@ internal abstract class YuriGardenParser(
 		val pages = json.getJSONArray("pages").asTypedList<JSONObject>()
 
 		return pages.mapIndexed { index, page ->
-			val rawUrl = page.getString("url")
+			val rawUrl = page.getString("url").replace("_credit", "")
 
 			if (rawUrl.startsWith("comics")) {
 				val key = page.optString("key", null)

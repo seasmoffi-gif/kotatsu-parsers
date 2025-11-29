@@ -32,7 +32,7 @@ import java.util.EnumSet
 internal class AnimeSama(context: MangaLoaderContext) :
 	PagedMangaParser(context, source = MangaParserSource.ANIMESAMA, 96) {
 
-	override val configKeyDomain = ConfigKey.Domain("anime-sama.fr")
+	override val configKeyDomain = ConfigKey.Domain("anime-sama.org")
 	private val baseUrl = "https://$domain"
 	private val cdnUrl = "$baseUrl/s2/scans/"
 
@@ -83,7 +83,7 @@ internal class AnimeSama(context: MangaLoaderContext) :
 	private fun buildListUrl(page: Int, order: SortOrder, filter: MangaListFilter) = when {
 		filter.query.isNullOrEmpty().not() || filter.tags.isNotEmpty() -> {
 			"$baseUrl/catalogue".toHttpUrl().newBuilder()
-				.addQueryParameter("type[0]", "Scans")
+				.addQueryParameter("type[]", "Scans")
 				.apply {
 					filter.query?.let { addQueryParameter("search", it) }
 					filter.tags.forEach { tag ->
@@ -96,7 +96,7 @@ internal class AnimeSama(context: MangaLoaderContext) :
 
 		order == SortOrder.UPDATED && page == 1 -> baseUrl.toHttpUrl()
 		else -> "$baseUrl/catalogue".toHttpUrl().newBuilder()
-			.addQueryParameter("type[0]", "Scans")
+			.addQueryParameter("type[]", "Scans")
 			.addQueryParameter("page", page.toString())
 			.build()
 	}

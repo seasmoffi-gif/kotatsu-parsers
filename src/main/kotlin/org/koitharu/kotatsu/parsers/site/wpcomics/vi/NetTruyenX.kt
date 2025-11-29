@@ -2,7 +2,6 @@ package org.koitharu.kotatsu.parsers.site.wpcomics.vi
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import org.koitharu.kotatsu.parsers.Broken
 import org.koitharu.kotatsu.parsers.MangaLoaderContext
 import org.koitharu.kotatsu.parsers.MangaSourceParser
 import org.koitharu.kotatsu.parsers.model.*
@@ -11,7 +10,6 @@ import org.koitharu.kotatsu.parsers.util.*
 import org.koitharu.kotatsu.parsers.util.json.getStringOrNull
 import java.text.SimpleDateFormat
 
-@Broken("Need to fix coverUrl")
 @MangaSourceParser("NETTRUYENX", "NetTruyenX", "vi")
 internal class NetTruyenX(context: MangaLoaderContext) :
 	WpComicsParser(context, MangaParserSource.NETTRUYENX, "nettruyenx.net", 36) {

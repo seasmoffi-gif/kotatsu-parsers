@@ -32,8 +32,6 @@ internal class CuuTruyenParser(context: MangaLoaderContext) :
 		"cuutruyen.net",
 		"nettrom.com",
 		"hetcuutruyen.net",
-		"nettrom.com",
-		"cuutruyen5c844.site",
 	)
 
     private val preferredServerKey = ConfigKey.PreferredImageServer(
